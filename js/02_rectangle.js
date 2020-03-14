@@ -2,9 +2,13 @@
   // convert a rectangle JavaScript object to an HTML string
   function buildRectangleHTML (rectangle) {
     // TODO: Your code goes here.
+
     return `
-        <div class="text-center mt-5">
-            <code>${JSON.stringify(rectangle)}</code>
+        <div style="
+            width: ${rectangle.width}px;
+            height: ${rectangle.height}px;
+            background-color: ${rectangle.color};
+            ">
         </div>
     `
   }
@@ -22,9 +26,12 @@
   function clickRectangleBtn () {
     // using the buildRectangleHTML function, create the HTML for the rectangleData
     // and then put them into the <div id=content> element
-
     // TODO: your code goes here
+    const rectangleHTML = buildRectangleHTML(rectangleData)
+    contentElement.innerHTML = rectangleHTML
   }
+    // console.assert (typeof rectangleHTML === 'string', "it's a string" )
+    
 
   // attach an event handler for button click
   btnEl.addEventListener('click', clickRectangleBtn)
