@@ -3,10 +3,14 @@
   function buildRectangleHTML (rectangle) {
     // TODO: Your code goes here.
     return `
-        <div class="text-center mt-5">
-            <code>${JSON.stringify(rectangle)}</code>
-        </div>
-    `
+       
+      <div style="
+        width: ${rectangle.width}px;
+        height: ${rectangle.height}px;
+        background-color: ${rectangle.color};
+      ">
+      </div>
+      `
   }
 
   // here we have two rectangles, each represented by a JavaScript Object
@@ -28,8 +32,13 @@
   function clickRectanglesBtn () {
     // using the buildRectangleHTML function, create the HTML for the orangeRectangle and blueRectangle
     // and then put them into the <div id=content> element
-
     // TODO: your code goes here
+    const orangeRectangleHTML = buildRectangleHTML(orangeRectangle)
+    const blueRectangleHTML = buildRectangleHTML(blueRectangle)
+
+    contentElement.innerHTML = orangeRectangleHTML + blueRectangleHTML
+    
+    
   }
 
   // attach an event handler for button click
