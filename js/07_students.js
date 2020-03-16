@@ -3,8 +3,10 @@
   function buildStudentHTML (student) {
     // TODO: Your code goes here.
     return `
-        <div class="text-center mt-5">
-            <code>${JSON.stringify(student)}</code>
+        <div style="
+          name: ${student.name};
+          presence: ${student.isPresent};
+        ">
         </div>
     `
   }
@@ -34,7 +36,17 @@
     }
   ]
 
+  const contentElement = document.getElementById("content")
+  const btnElement = document.getElementById("studentsBtn")
   // Now that we have seen a few examples, try to write your own button click and
   // attach event handler code below.
+  function clickStudentsBtn () {
 
+      contentElement.innerHTML = `
+      <div class="d-flex flex-column align-items-center">
+      ${studentsData.map(buildStudentHTML).join('')}
+      </div>
+      `
+  }
+    btnElement.addEventListener("click", clickStudentsBtn)
 })()
