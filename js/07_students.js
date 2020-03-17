@@ -4,6 +4,13 @@
   
   function buildStudentHTML (student) {
     // TODO: Your code goes here.
+    function studentPresence(isPresent) {
+      if (isPresent == true) {
+        return "Present"
+      } else {
+        return "Absent"
+      }
+    }
     return `
         
         <div class="studentpresence" style="
@@ -18,7 +25,7 @@
         ">
           <p class="student"
           >${student.name}<br/>
-            ${student.isPresent}
+            ${studentPresence(student.isPresent)}
           </p>
 
         </div>
